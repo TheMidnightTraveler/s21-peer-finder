@@ -13,8 +13,15 @@ FetchContent_Declare(
     GIT_REPOSITORY https://github.com/reo7sp/tgbot-cpp.git
     GIT_TAG master
 )
-
 FetchContent_MakeAvailable(tgbot)
+
+set(HTTPLIB_REQUIRE_OPENSSL ON)
+FetchContent_Declare(
+    httplib
+    GIT_REPOSITORY https://github.com/yhirose/cpp-httplib.git
+    GIT_TAG master
+)
+FetchContent_MakeAvailable(httplib)
 
 add_executable(s21_bot
     src/main.cpp
@@ -22,14 +29,9 @@ add_executable(s21_bot
     src/bot/PeerFinderBot.cpp
 )
 
-target_link_libraries(s21_bot 
-    OpenSSL::SSL 
+target_link_libraries(s21_bot
+    OpenSSL::SSL
     OpenSSL::Crypto
     TgBot
+    httplib::httplib
 )
-
-target_include_directories(s21_bot PRIVATE 
-    /usr/include
-)
-
-target_compile_definitions(s21_bot PRIVATE CPPHTTPLIB_OPENSSL_SUPPORT)
