@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     libboost-dev \
     libcurl4-openssl-dev \
+    zlib1g-dev \
     ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
@@ -22,6 +23,7 @@ FROM debian:bookworm-slim
 RUN apt-get update && apt-get install -y \
     libssl3 \
     libcurl4 \
+    zlib1g \
     ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
