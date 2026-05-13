@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
     libboost-dev \
     libcurl4-openssl-dev \
     zlib1g-dev \
+    nlohmann-json3-dev \
     ca-certificates \
     wget \
     && rm -rf /var/lib/apt/lists/*
