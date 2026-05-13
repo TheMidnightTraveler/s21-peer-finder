@@ -9,7 +9,11 @@ RUN apt-get update && apt-get install -y \
     libcurl4-openssl-dev \
     zlib1g-dev \
     ca-certificates \
+    wget \
     && rm -rf /var/lib/apt/lists/*
+
+RUN wget -q -O /usr/local/include/httplib.h \
+    "https://raw.githubusercontent.com/yhirose/cpp-httplib/master/httplib.h"
 
 WORKDIR /app
 COPY . .

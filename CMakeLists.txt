@@ -15,20 +15,13 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(tgbot)
 
-FetchContent_Declare(
-    httplib
-    GIT_REPOSITORY https://github.com/yhirose/cpp-httplib.git
-    GIT_TAG master
-)
-FetchContent_MakeAvailable(httplib)
-
 add_executable(s21_bot
     src/main.cpp
     src/api/S21Api.cpp
     src/bot/PeerFinderBot.cpp
 )
 
-target_include_directories(s21_bot PRIVATE ${httplib_SOURCE_DIR})
+target_include_directories(s21_bot PRIVATE /usr/local/include)
 
 target_compile_definitions(s21_bot PRIVATE CPPHTTPLIB_OPENSSL_SUPPORT)
 
